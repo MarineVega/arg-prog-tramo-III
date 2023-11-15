@@ -2,9 +2,9 @@
   "name": "arg-prog-tramo-iii",
   "version": "1.0.0",
   "description": "",
-  "main": "servidorExpress.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon servidorExpress"
+    "dev": "nodemon src/server.js"
   },
   "author": "",
   "license": "ISC",
