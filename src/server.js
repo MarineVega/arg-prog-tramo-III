@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 
@@ -11,5 +13,11 @@ app.get('/',(req, res)=> {
 
 
 app.listen(PORT, () => {
-  console.log(`Servidor Express corriendo en el puerto ${PORT}`)
+  console.log(`Servidor Express corriendo en el puerto ${PORT}`);
+  
+  //Muestro variables de entorno
+  /*
+  console.log(process.env);  
+  console.log(process.env.DB_USER);
+  */
 });
