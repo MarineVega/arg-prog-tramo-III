@@ -1,3 +1,5 @@
+const UsuarioModel = require('./../models/UsuarioModel.js');
+
 const UsuariosController = {}
 
 const lista_usuarios = [
@@ -6,13 +8,35 @@ const lista_usuarios = [
 ];
 
 // Ver usuarios
-UsuariosController.verUsuarios = (req, res) => {
+UsuariosController.verUsuarios = async (req, res) => {
     //return lista_usuarios;
-    return res.json(lista_usuarios);    
+
+    try {
+        const listaUsuarios = await UsuarioModel.findAll();
+        return res.json(listaUsuarios);     
+
+    } catch (error) {
+        return res.status(500).json({ 
+            mensaje: 'Ocurrió un error interno',
+            error : error
+        });        
+    }   
 };
 
 // Ver usuario
-UsuariosController.verUsuario = (req, res) => {
+UsuariosController.verUsuario = async (req, res) => {
+    // Ver un usuario en particular por nombre, apellido o ID
+    // OJO!!!!! esto no está funcionando
+    try {
+        const usuario = await UsuarioModel.findOne({ where: { id: id } });
+        return res.json({mensaje: usuario}); 
+    } catch (error) {
+        return res.status(500).json({ 
+            mensaje: 'Ocurrió un error interno',
+            error : error
+        });        
+    }      
+   
     return res.json({mensaje: 'Ruta: ver usuario'});    
 };
 
