@@ -8,6 +8,7 @@ const usuarioRouter = require('./routes/UsuarioRouter.js');
 const autenticacionRouter = require('./routes/AutenticacionRouter.js');
 const archivoRouter = require('./routes/ArchivoRouter.js');
 const georefRouter = require('./routes/GeorefRouter.js');
+const emailRouter = require('./routes/EmailRouter.js');
 
 const app = express();
 const PORT = 3000;
@@ -21,6 +22,7 @@ app.use(usuarioRouter);
 app.use(autenticacionRouter);
 app.use(archivoRouter);
 app.use(georefRouter);
+app.use(emailRouter);
 
 app.listen(PORT, () => {
   console.log(`Servidor Express corriendo en el puerto ${PORT}`);
