@@ -1,3 +1,4 @@
+//Traigo el módulo de rutas que utiliza express
 const usuarioRouter = require('express').Router();
 
 //Acá recibo el objeto completo, sin desestructurar, lo desestructuro en cada función.
