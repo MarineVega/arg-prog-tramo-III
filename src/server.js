@@ -1,18 +1,19 @@
 require('dotenv').config();
 
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const usuarioRouter = require('./routes/UsuarioRouter.js');
+const autenticacionRouter = require('./routes/AutenticacionRouter.js');
 
 const app = express();
-
 const PORT = 3000;
-/*
-app.get('/', (req, res) => {
-  res.send('Hola Mundo!');
-});
-*/
+
+//Middleware
+app.use(bodyParser.json());
 
 app.use(usuarioRouter);
+app.use(autenticacionRouter);
 
 app.listen(PORT, () => {
   console.log(`Servidor Express corriendo en el puerto ${PORT}`);
