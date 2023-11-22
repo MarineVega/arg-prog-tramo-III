@@ -3,8 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
-const { database } = require('./config/SequelizeConfig.js');
+//const { database } = require('./config/SequelizeConfig.js');
 const conectarMongo = require('./config/MongooseConfig.js');
 
 const usuarioRouter = require('./routes/UsuarioRouter.js');
@@ -18,6 +19,7 @@ const PORT = 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(fileUpload());
+app.use(cors());
 
 // Rutas
 app.use(usuarioRouter);
@@ -27,7 +29,7 @@ app.use(georefRouter);
 
 app.listen(PORT, () => {
   console.log(`Servidor Express corriendo en el puerto ${PORT}`);
-  // database();
+  //database();
   conectarMongo();
 
     //Muestro variables de entorno

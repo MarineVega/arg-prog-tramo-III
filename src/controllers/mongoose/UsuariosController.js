@@ -16,7 +16,7 @@ UsuariosController.verUsuarios = async (req, res) => {
             error : error
         });        
     }   
-};
+}
 
 // Ver usuario
 UsuariosController.verUsuario = async (req, res) => {
@@ -39,7 +39,7 @@ UsuariosController.verUsuario = async (req, res) => {
                error : error
            });        
        }   
-   };
+   }
 
 // Crear usuario
 UsuariosController.crearUsuario = async (req, res) => {
@@ -60,8 +60,8 @@ UsuariosController.crearUsuario = async (req, res) => {
             mensaje: 'Ocurrió un error interno al intentar crear un usuario',
             error: error
         });        
-    };     
-};
+    }
+}
 
 // Editar usuario
 UsuariosController.editarUsuario = async (req, res) => {
@@ -73,15 +73,14 @@ UsuariosController.editarUsuario = async (req, res) => {
             { nombre: nombre, apellido: apellido }
         );
 
-        
-
+        return res.json({ mensaje: 'Usuario actualizado con éxito' });
     } catch (error) {
         return res.status(500).json({
             mensaje: 'Ocurrió un error interno al intentar editar el usuario',
             error: error
         });        
-    };
-};
+    }
+}
 
 // Eliminar usuario
 UsuariosController.eliminarUsuario = async (req, res) => {
@@ -97,8 +96,8 @@ UsuariosController.eliminarUsuario = async (req, res) => {
             mensaje: 'Ocurrió un error interno al intentar eliminar el usuario',
             error: error
         });    
-    };   
-};
+    }
+}
 
 //Exporto
 module.exports = UsuariosController;
